@@ -123,6 +123,29 @@
             color: #999;
         }
 
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--ink);
+            line-height: 1.5;
+        }
+
+        .checkbox-input {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+        }
+
+        .checkbox-text {
+            font-weight: 300;
+        }
+
         .submit-btn {
             width: 100%;
             padding: 14px 24px;
@@ -147,14 +170,6 @@
 
         .submit-btn:active {
             transform: translateY(0);
-        }
-
-        .trust-line {
-            font-size: 12px;
-            color: var(--soft-gray);
-            text-align: center;
-            margin-top: 20px;
-            font-weight: 300;
         }
 
         .footer {
@@ -287,18 +302,26 @@
                         placeholder="name@company.com"
                         required
                     >
+                    
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="newsletter-consent" 
+                            name="newsletter-consent"
+                            class="checkbox-input"
+                            required
+                        >
+                        <span class="checkbox-text">Yes, send me regular insights on executive career transitions (you can unsubscribe anytime)</span>
+                    </label>
+                    
                     <button type="submit" class="submit-btn">Download the Guide</button>
-                    <p class="trust-line">
-                        No spam. I'll also send you my weekly newsletter on executive career transitions.
-                    </p>
                 </form>
             </div>
 
             <div id="success-container" class="success-message">
                 <h2>Your guide is ready</h2>
                 <p>
-                    Click below to download "The 5 Mistakes Senior Leaders Make In Career Transitions." 
-                    You'll also receive my weekly insights on executive career transitions.
+                    Click below to download "The 5 Mistakes Senior Leaders Make In Career Transitions."
                 </p>
                 <a href="COH_-_5_Mistakes_Senior_Leaders_Make_In_Career_Transitions.pdf" 
                    class="download-btn" 
