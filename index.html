@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 5 Mistakes Senior Leaders Make In Career Transitions | Christian Oliver Harris</title>
+    <meta name="description" content="Download the free guide and discover why senior leaders with 15+ years of experience get stuck in career transitions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F9F7F4;
+            --ink: #1a1a1a;
+            --soft-gray: #666666;
+            --border: #E0DDD9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 580px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .logo-image {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .content {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .subheading {
+            font-size: 15px;
+            color: var(--soft-gray);
+            margin-bottom: 32px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .form-wrapper {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 32px 28px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-wrapper:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--ink);
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 0.01em;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            transition: all 0.2s ease;
+            margin-bottom: 16px;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--ink);
+            background: white;
+        }
+
+        .email-input::placeholder {
+            color: #999;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--ink);
+            color: var(--cream);
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .trust-line {
+            font-size: 12px;
+            color: var(--soft-gray);
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.4s forwards;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--soft-gray);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .footer-link {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            border-bottom-color: var(--ink);
+        }
+
+        .success-message {
+            display: none;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 32px 28px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .success-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .success-message p {
+            color: var(--soft-gray);
+            font-size: 14px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 14px 32px;
+            background: var(--ink);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .logo-image {
+                max-width: 200px;
+            }
+
+            .form-wrapper {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="COH_new_executive_coaching_only.png" alt="Christian Oliver Harris - Executive Career Coaching" class="logo-image">
+        </div>
+
+        <div class="content">
+            <h1>The 5 Mistakes Senior Leaders Make In Career Transitions</h1>
+            <p class="subheading">
+                You spent 15-20 years building a career that worked, until it didn't. 
+                This guide covers the mistakes that keep senior leaders stuck and what to do instead.
+            </p>
+
+            <div id="form-container">
+                <form id="lead-form" class="form-wrapper">
+                    <label class="form-label" for="email">Your email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="email-input" 
+                        placeholder="name@company.com"
+                        required
+                    >
+                    <button type="submit" class="submit-btn">Download the Guide</button>
+                    <p class="trust-line">
+                        No spam. I'll also send you my weekly newsletter on executive career transitions.
+                    </p>
+                </form>
+            </div>
+
+            <div id="success-container" class="success-message">
+                <h2>Check your inbox</h2>
+                <p>
+                    I've sent you the guide. If you don't see it in the next few minutes, 
+                    check your spam folder or email me at christian@christianoliverharris.com
+                </p>
+                <a href="/mnt/user-data/uploads/COH_-_5_Mistakes_Senior_Leaders_Make_In_Career_Transitions.pdf" 
+                   class="download-btn" 
+                   download="The-5-Mistakes-Senior-Leaders-Make-In-Career-Transitions.pdf">
+                    Download Now
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">
+                <a href="https://calendly.com/christianoliverharris/meet-chris" class="footer-link">Book a call</a>
+                 — 
+                <a href="mailto:christian@christianoliverharris.com" class="footer-link">christian@christianoliverharris.com</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('lead-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const submitBtn = e.target.querySelector('.submit-btn');
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                // Google Apps Script Web App URL
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwAJ6_JSp6tUdChY7mejjX4Jd7QsoF187xNQO1rtYPRGSkxnKEPRHGYQffkeKk0RtxJ/exec', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        email: email 
+                    })
+                });
+
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.message || 'Submission failed');
+                }
+
+                // Show success message
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('success-container').classList.add('show');
+
+                // Optional: Track conversion with analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'YOUR_CONVERSION_ID',
+                        'value': 1.0,
+                        'currency': 'EUR'
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Download the Guide';
+                alert('Something went wrong. Please try again or email me directly.');
+            }
+        });
+    </script>
+</body>
+</html>
