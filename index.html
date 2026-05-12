@@ -329,8 +329,8 @@
             submitBtn.textContent = 'Sending...';
 
             try {
-                // Google Apps Script Web App URL
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwAJ6_JSp6tUdChY7mejjX4Jd7QsoF187xNQO1rtYPRGSkxnKEPRHGYQffkeKk0RtxJ/exec', {
+                // Google Apps Script Web App URL (v2 with CORS)
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzNTQPRxyyck6HASQzLpXDiWSQlom3OVK5MNRaCR-Q59M1ZeCJ3GTyModQfo-7__Wac/exec', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json'
