@@ -227,6 +227,16 @@
             font-weight: 300;
         }
 
+        .inline-link {
+            color: var(--ink);
+            text-decoration: underline;
+            transition: opacity 0.2s ease;
+        }
+
+        .inline-link:hover {
+            opacity: 0.7;
+        }
+
         .download-btn {
             display: inline-block;
             margin-top: 24px;
@@ -299,7 +309,7 @@
                         id="email" 
                         name="email" 
                         class="email-input" 
-                        placeholder="name@company.com"
+                        placeholder="your.email@example.com"
                         required
                     >
                     
@@ -319,15 +329,13 @@
             </div>
 
             <div id="success-container" class="success-message">
-                <h2>Your guide is ready</h2>
+                <h2>Thank you</h2>
                 <p>
-                    Click below to download "The 5 Mistakes Senior Leaders Make In Career Transitions."
+                    Your guide is downloading now. If the download doesn't start automatically, 
+                    <a href="COH - 5 Mistakes Senior Leaders Make In Career Transitions.pdf" 
+                       download="The-5-Mistakes-Senior-Leaders-Make-In-Career-Transitions.pdf"
+                       class="inline-link">click here</a>.
                 </p>
-                <a href="COH - 5 Mistakes Senior Leaders Make In Career Transitions.pdf" 
-                   class="download-btn" 
-                   download="The-5-Mistakes-Senior-Leaders-Make-In-Career-Transitions.pdf">
-                    Download the Guide
-                </a>
             </div>
         </div>
 
@@ -363,6 +371,15 @@
                 });
 
                 // With no-cors mode, we can't read the response, so we assume success
+                
+                // Trigger automatic PDF download
+                const link = document.createElement('a');
+                link.href = 'COH - 5 Mistakes Senior Leaders Make In Career Transitions.pdf';
+                link.download = 'The-5-Mistakes-Senior-Leaders-Make-In-Career-Transitions.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
                 // Show success message
                 document.getElementById('form-container').style.display = 'none';
                 document.getElementById('success-container').classList.add('show');
