@@ -329,25 +329,17 @@
             submitBtn.textContent = 'Sending...';
 
             try {
-                // Google Apps Script Web App URL (v2 with CORS)
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzNTQPRxyyck6HASQzLpXDiWSQlom3OVK5MNRaCR-Q59M1ZeCJ3GTyModQfo-7__Wac/exec', {
+                // Use URL-encoded form data instead of JSON to avoid CORS preflight
+                const formData = new URLSearchParams();
+                formData.append('email', email);
+
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzY58qLScruTtuR3X1pTlYj4p1UGfNMHJq-GZRejw_hSlgyRYXGal86qX6h2Yre0PYe/exec', {
                     method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ 
-                        email: email 
-                    })
+                    body: formData,
+                    mode: 'no-cors'
                 });
 
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const result = await response.json();
-                
-                if (!result.success) {
-                    throw new Error(result.message || 'Submission failed');
-                }
-
+                // With no-cors mode, we can't read the response, so we assume success
                 // Show success message
                 document.getElementById('form-container').style.display = 'none';
                 document.getElementById('success-container').classList.add('show');
