@@ -329,7 +329,6 @@
                             id="newsletter-consent" 
                             name="newsletter-consent"
                             class="checkbox-input"
-                            required
                         >
                         <span class="checkbox-text">I consent to receiving insights on executive career transitions and understand that my data will be processed according to the <a href="privacy.html" target="_blank" class="privacy-link">Privacy Policy</a>. I can unsubscribe anytime.</span>
                     </label>
@@ -363,6 +362,13 @@
     <script>
         document.getElementById('lead-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Custom validation message in English
+            const checkbox = document.getElementById('newsletter-consent');
+            if (!checkbox.checked) {
+                alert('Please check the consent box to download the guide.');
+                return;
+            }
             
             const email = document.getElementById('email').value;
             const submitBtn = e.target.querySelector('.submit-btn');
